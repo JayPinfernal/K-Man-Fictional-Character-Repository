@@ -1,0 +1,24 @@
+{
+  "name": "kfcr",
+  "version": "1.0.0",
+  "description": "App to enter character info",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "author": "Jay P",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "moment": "^2.19.1",
+    "mongoose": "^4.12.4",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth20": "^1.0.0"
+  }
+}
