@@ -2,6 +2,12 @@ const express = require('express');
 const mongoose= require('mongoose');
 const exphbs = require('express-handlebars');
 const bodyParser =require('body-parser');
+const passport = require('passport');
+//Passport configs
+require('./configs/passport')(passport);
+
+//Load routes
+const gauth= require('./routes/gauth')
 
 const app = express();
 //handlebars middleware
@@ -25,6 +31,9 @@ app.post('/doStuff', (req, res) => {
     info:req.body.datval
   });
 });
+
+//Use the routes
+app.use('/gauth', gauth);
 
 const port =process.env.PORT || 5523;
 
