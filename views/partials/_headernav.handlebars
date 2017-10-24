@@ -1,0 +1,48 @@
+<nav class="blue darken-3">
+<div class="container">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center"  >K.F.C.R</a>
+    <a href="#" data-activates="go-navbar" class="button-collapse show-on-large"><i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+     <!--Right navs -->
+     <ul class="right hide-on-small-only">
+         {{#if user}}
+               <li>    <a href="/entries/list"><i class="fa fa-search" aria-hidden="true"></i> Check out the Entries</a> </li>
+          <li>    <a href="/dashboard">Welcome {{user.firstName}}</a> </li>
+        <li>    <a href="/gauth/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a> </li>
+         {{else}}
+         <li>    <a href="/entries/list"><i class="fa fa-search" aria-hidden="true"></i> Check Out the entries</a> </li>
+         {{/if}}
+     </ul>
+
+     <!-- side menu -->
+     <ul id="go-navbar" class="side-nav">
+    {{#if user}}
+    <li><div class="user-view">
+          <div class="background">
+            <img src="https://af-production.s3.amazonaws.com/photos/images/76458/original/books.jpg">
+          </div>
+          <a href="#!user"><img class="circle" src="{{user.image}}"></a>
+          <a href="#!name"><span class="dark-text name">{{user.firstName}} {{user.lastName}}</span></a>
+          <a href="#!email"><span class="dark-text email">{{user.email}}</span></a>
+        </div></li>
+
+                  <li><div class="divider"></div></li>
+                  <li><a href="/dashboard">Welcome {{user.firstName}}</a></li>
+                  <li><a href="/entries/my">My Entries</a></li>
+                  <li><div class="divider"></div></li>
+                         <li>    <a href="/entries/list"><i class="fa fa-search" aria-hidden="true"></i> Check Out the entries</a> </li>
+
+                         <li>    <a href="/gauth/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a> </li>
+
+    {{else}}
+    <li>  <a class="waves-effect waves-light btn red darken-1" href="/gauth/google"><i class="fa fa-google left" aria-hidden="true"></i>
+       Login with google</a> </li>
+       <li><div class="divider"></div></li>
+       <li>    <a href="/entries/list"><i class="fa fa-search" aria-hidden="true"></i> Check Out the entries</a> </li>
+    {{/if}}
+
+  </ul>
+  </div>
+</div>
+</nav>
