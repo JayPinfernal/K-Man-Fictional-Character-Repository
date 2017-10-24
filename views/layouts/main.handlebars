@@ -8,14 +8,23 @@
 
   <!-- Compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
+   <link rel="stylesheet" href="/css/style.css">
 
 </head>
 <body>
   {{> _headernav}}
-<div class="container">
-    {{{body}}}
-</div>
+  {{#if user}}
+    {{> _add-btn}}
+  {{else}}
+
+  {{/if}}
+  <main>
+    <div class="container">
+        {{{body}}}
+    </div>
+  </main>
+
+  {{> _stickfooter}}
 
 
     <!-- Include external JS libs. -->
@@ -41,14 +50,8 @@
             CKEDITOR.config.embed_provider='//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
             CKEDITOR.config.allowedContent =true;
             CKEDITOR.config.disallowedContent = 'script style';
-            CKEDITOR.config.contentsCss='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css';
-            CKEDITOR.stylesSet.add( 'my_styles', [
+            CKEDITOR.config.contentsCss='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css';
 
-    // Inline styles
-    { name: 'Info Alert', element: 'p', attributes: { 'class': 'alert alert-info' } },
-    { name: 'Dark Alert', element: 'div', attributes: { 'class':'alert alert-dark' } }
-] );
-    CKEDITOR.config.stylesSet = 'my_styles';
        		</script>
      </body>
 </body>

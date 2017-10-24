@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose= require('mongoose');
 const exphbs = require('express-handlebars');
+const path = require('path');
 const bodyParser =require('body-parser');
 const cookieParser= require('cookie-parser');
 const session= require('express-session');
@@ -19,7 +20,7 @@ require('./configs/passport')(passport);
 //Load routes
 const index= require('./routes/index');
 const gauth= require('./routes/gauth');
-
+const entries= require('./routes/entries');
 //Session middleware
 app.use(cookieParser());
 app.use(session({
@@ -62,10 +63,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //some demo code for now
 
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Use the routes
 app.use('/gauth', gauth);
 app.use('/', index);
+app.use('/entries', entries);
+
 
 const port =process.env.PORT || 5523;
 
