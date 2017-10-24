@@ -8,6 +8,7 @@
 
   <!-- Compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
    <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -33,6 +34,7 @@
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
       crossorigin="anonymous">
       </script>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <script src="https://cdn.ckeditor.com/4.7.3/standard-all/ckeditor.js"></script>
@@ -43,14 +45,16 @@
       $('.button-collapse').sideNav();
       $('select').material_select();
     });
+
+
        			CKEDITOR.replace( 'datval',{
-              plugins : 'wysiwygarea,iframe,iframedialog,toolbar,image,embed,embedbase,basicstyles,list,table,sourcearea,format,horizontalrule,stylescombo,tabletools,liststyle,font,justify'
+              plugins : 'wysiwygarea,iframe,iframedialog,toolbar,image,embed,embedbase,basicstyles,list,table,sourcearea,format,horizontalrule,stylescombo,tabletools,liststyle,font,justify,blockquote,preview,link'
 
             } );
             CKEDITOR.config.embed_provider='//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
             CKEDITOR.config.allowedContent =true;
             CKEDITOR.config.disallowedContent = 'script style';
-            CKEDITOR.config.contentsCss='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css';
+            CKEDITOR.config.contentsCss=['https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css','https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css'];
 
        		</script>
      </body>

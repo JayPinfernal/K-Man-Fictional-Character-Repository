@@ -1,1 +1,44 @@
-<h1> ADD </h1>
+<h1 class="display-3"> Add An Entry to KFCR </h1>
+<hr class="my-4">
+
+<form action="/entries/list" method="post">
+  <div class="form-group">
+       Enter The Title
+    <input id="title" type="text" class="validate" name="title" required="" aria-required="true">
+
+  </div>
+  <div class="form-group">
+    Enter The URL
+    <input type="text" class="form-control" id="imgsrc" placeholder="http://img.com/image.jpg" required="" aria-required="true"
+    name="imgsrc">
+    <button type="button" name="button" id="prev" class="btn btn-info sm" onclick="setImg()">Preview image</button> (in 250x250 size)
+  </div>
+
+  <div class="form-group">
+    <img width="250px" height="250px" src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png" id='isc' >
+  </div>
+  <hr class="my-3">
+  <div class="form-group">
+       Enter A short Summary of your Entry
+    <input id="summ" type="text" class="validate" name="summary" required="" aria-required="true">
+
+  </div>
+  <hr class="my-3">
+  <span class="h4 ">Enter The contents of your entry </span>
+   <p class="mb-5"> </p>
+<textarea name="datval"  id="mkdwn" style="border: 2px solid" cols="90">Enter Article Contents (this will get stored by default, so try to change this)</textarea>
+<hr class="my-3">
+
+      <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+       <label for="filled-in-box ">Allow Comments</label>
+  <hr class="my-3">
+
+
+  <button type="submit" class="btn btn-primary mt-5">Submit</button>
+</form>
+<script type="text/javascript">
+  function setImg() {
+  var img=    document.getElementById('imgsrc').value;
+  document.getElementById('isc').src=img;
+  }
+</script>
