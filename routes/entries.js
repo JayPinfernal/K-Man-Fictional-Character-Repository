@@ -13,4 +13,9 @@ router.get('/edit', (req, res) => {
   res.render('entries/edit')
 });
 
+router.get('/view', (req,res) => {
+  res.render('entries/display');
+}
+)
+
 module.exports = router;

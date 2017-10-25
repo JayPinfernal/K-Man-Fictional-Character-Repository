@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Example App</title>
     <!-- Include external CSS. -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -48,7 +49,7 @@
 
 
        			CKEDITOR.replace( 'datval',{
-              plugins : 'wysiwygarea,iframe,iframedialog,toolbar,image,embed,embedbase,basicstyles,list,table,sourcearea,format,horizontalrule,stylescombo,tabletools,liststyle,font,justify,blockquote,preview,link'
+              plugins : 'wysiwygarea,iframe,iframedialog,toolbar,image,embed,embedbase,basicstyles,list,table,sourcearea,format,horizontalrule,stylescombo,tabletools,liststyle,font,justify,blockquote,preview,link,undo'
 
             } );
             CKEDITOR.config.embed_provider='//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}';
