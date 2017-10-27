@@ -1,1 +1,47 @@
-<h1> Edit </h1>
+<h1 class="display-3"> Edit "{{entry.title}}" </h1>
+<hr class="my-4">
+
+<form action="/entries/view/{{entry.id}}?_method=PUT" method="post">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="form-group">
+       Enter The Title
+    <input id="title" type="text" class="validate" name="title" required="" aria-required="true" value="{{entry.title}}">
+
+  </div>
+  <div class="form-group">
+    Enter The URL
+    <input type="text" class="form-control" id="imgsrc" placeholder="http://img.com/image.jpg" required="" aria-required="true"
+    name="image" value="{{entry.image}}">
+    <button type="button" name="button" id="prev" class="btn btn-info sm" onclick="setImg()">Preview image</button> (in 250x250 size)
+  </div>
+
+  <div class="form-group">
+    <img width="250px" height="250px" src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png" id='isc' >
+  </div>
+  <hr class="my-3">
+  <div class="form-group">
+       Enter A short Summary of your Entry
+    <input id="summ" type="text" class="validate" name="summary" required="" aria-required="true" value="{{entry.summary}}">
+
+  </div>
+  <hr class="my-3">
+  <span class="h4 ">Enter The contents of your entry </span>
+   <p class="mb-5"> </p>
+<textarea name="content"  id="mkdwn" style="border: 2px solid" cols="90">{{{entry.content}}}</textarea>
+<hr class="my-3">
+
+      <input type="checkbox" class="filled-in" id="filled-in-box"{{#if entry.allowComments}}
+         checked="checked"
+      {{/if}} name='allowComments'/>
+       <label for="filled-in-box ">Allow Comments</label>
+  <hr class="my-3">
+
+
+  <button type="submit" class="btn btn-primary mt-5">Submit</button>
+</form>
+<script type="text/javascript">
+  function setImg() {
+  var img=    document.getElementById('imgsrc').value;
+  document.getElementById('isc').src=img;
+  }
+</script>

@@ -4,14 +4,24 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser =require('body-parser');
 const cookieParser= require('cookie-parser');
+const methodOverride = require('method-override');
 const session= require('express-session');
 const passport = require('passport');
+const moment = require('moment');
+const Entities = require('html-entities').AllHtmlEntities;
 const impkeys = require('./configs/impkeys');
+
+const{
+  truncate,
+  stripTags,
+  formatDate,
+  editIcon
+} =require('./helpers/hbs')
 
 const app = express();
 //Load Models
 require('./models/User')
-
+require('./models/Entry')
 //Passport configs
 require('./configs/passport')(passport);
 
@@ -54,12 +64,22 @@ mongoose.connect(impkeys.mongoURI,{
 
 
 //handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+helpers: {
+  truncate: truncate,
+  stripTags: stripTags,
+  formatDate: formatDate,
+  editIcon: editIcon
+},
+  defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+//method-override middleware
+app.use(methodOverride("_method"));
 
 //some demo code for now
 

@@ -10,7 +10,7 @@
   <div class="form-group">
     Enter The URL
     <input type="text" class="form-control" id="imgsrc" placeholder="http://img.com/image.jpg" required="" aria-required="true"
-    name="imgsrc">
+    name="image">
     <button type="button" name="button" id="prev" class="btn btn-info sm" onclick="setImg()">Preview image</button> (in 250x250 size)
   </div>
 
@@ -24,13 +24,15 @@
 
   </div>
   <hr class="my-3">
+
+<input type="checkbox" name="allowComments" id="test5" checked="checked">
+   <label for="test5">Allow Comments</label>
+  <hr class="my-3">
   <span class="h4 ">Enter The contents of your entry </span>
    <p class="mb-5"> </p>
-<textarea name="datval"  id="mkdwn" style="border: 2px solid" cols="90">Enter Article Contents (this will get stored by default, so try to change this)</textarea>
-<hr class="my-3">
+<textarea name="content"  id="mkdwn" style="border: 2px solid" cols="90">Enter Article Contents (this will get stored by default, so try to change this)</textarea>
 
-      <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-       <label for="filled-in-box ">Allow Comments</label>
+
   <hr class="my-3">
 
 

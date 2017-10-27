@@ -1,1 +1,39 @@
-<h1> List of Articles </h1>
+<h1 class="display-1">Here are the Entries</h1>
+
+
+<br>
+<div class="row">
+{{#each entries}}
+
+        <div class="col-12 col-md-4">
+  <div class="card">
+    <div class="card-content center-align">
+      <div class="card-image">
+
+          {{#if user}}
+            {{{editIcon user.id ../user.id id}}}
+          {{/if}}
+      </div>
+      <img src="{{image}}" alt="{{title}}" height="300px" width="300px " class="mb-3">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="story-text">{{truncate summary  60}}</p>
+<br>
+        Created By<br>
+        <div class="chip">
+          <img src="{{user.image}}" alt="{{user.firstName}}" >
+    <a href="/entries/user/{{user.id}}">  {{user.firstName}} {{user.lastName}}</a>
+        </div>
+    </div>
+<div class="card-action center-align">
+  <a href="/entries/view/{{id}}">Read Entry</a>
+</div>
+  </div>
+        </div>
+
+{{else}}
+  <p> No Stories Found, sorry </p>
+  <a class="btn btn-outline-success" href="/entries/add">
+       <i class="fa fa-pencil" aria-hidden="true"> </i> Write One Of your Own
+     </a>
+{{/each}}
+      </div>

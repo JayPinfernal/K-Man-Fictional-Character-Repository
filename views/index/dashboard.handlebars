@@ -1,1 +1,34 @@
 <h1> Welcome {{user.firstName}} </h1>
+<h4 class="display-2">Here are your Created Entries</h4>
+<hr>
+{{#if entries}}
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Title</th>
+        <th>Date Created</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each entries}}
+  <tr>
+    <td><img src="{{image}}" alt="" height="110px" width="110px"></td>
+    <td><h4><a href="/entries/view/{{id}}">{{title}}</a></h4>
+       </td>
+       <td>{{formatDate entry.date 'Do MMMM YYYY'}}</td>
+       <td>{{truncate summary 30}}</td>
+       <td><a href="/entries/edit/{{id}}" class="btn left-align "><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+         <form action="/entries/{{id}}/?_method=DELETE" method="post" id="delete-form">
+           <input type="hidden" name="_method" value="DELETE">
+<button type="submit" name="button" class="btn red darken-3 "><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+</form>
+       </td>
+  </tr>
+{{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <h3>Opps, No Stories</h3>
+{{/if}}

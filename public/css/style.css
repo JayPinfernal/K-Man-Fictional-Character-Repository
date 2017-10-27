@@ -14,3 +14,13 @@ body {
  .nav-wrapper .fa-bars{
    font-size:25px;
  }
+a{
+  text-decoration: none;
+}
+ .story-text{
+   height: 100px;
+ }
+
+#delete-form{
+  display: inline;
+}

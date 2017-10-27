@@ -1,0 +1,64 @@
+
+<div class="row">
+  <div class="col-12 col-md-9">
+    <h3 class="display-4"><img src="{{entry.image}}" alt="{{entry.title}}" height="100" width="100" />  {{entry.title}}</h3>
+  <h4><small class="text-muted">Created On :- {{formatDate entry.date 'Do MMMM YYYY'}} </small> {{{editIcon entry.user.id user.id entry.id false}}}</h4>  
+    <hr>
+  <h4>Summary :-</h4>
+  {{entry.summary}}
+  <hr>
+
+        {{{content}}}
+
+
+      <hr>
+<h2>Comments :- </h2>
+{{#if entry.allowComments}}
+<div class="card">
+  <div class="card-content">
+    {{#if user}}
+<form method="post" action="/entries/comment/{{entry.id}}">
+<div class="input-field">
+  <textarea name="commentBody" class="materialize-textarea"></textarea>
+  <span class="label label-default">Add Comment</span>
+</div>
+<input type="submit" name="" value="Submit" class="btn">
+</form>
+    {{else}}
+      <p>Please <a href="/gauth/google">login to <i class="fa fa-google" aria-hidden="true"></i> Google</a> to comment</p>
+    {{/if}}
+  </div>
+</div>
+
+    {{#each entry.comments}}
+      <div class="card">
+        <div class="card-content">
+          <h5>{{commentBody}}</h5>
+          <div class="chip">
+            <img src="{{commentUser.image}}" alt="{{commentUser.firstName}}" >
+      <a href="#">  {{commentUser.firstName}} {{commentUser.lastName}}</a>
+          </div>
+          <br>
+          <small>Posted on :- {{formatDate commentDate 'Do MMMM YYYY'}} </small>
+        </div>
+      </div>
+    {{/each}}
+
+{{else}}
+  OOps, seems the creator does not want any comments here
+{{/if}}
+  </div>
+  <div class="col-12 col-md-3">
+    <div class="card center-align">
+      <div class="card-content">
+        Created By
+        <span class="card-title">{{entry.user.firstName}} {{entry.user.lastName}}</span>
+        <img src="{{entry.user.image}}" class="circle responsive-img">
+      </div>
+      <div class="card-action">
+      <a href="/entries/user/{{entry.user.id}}" style="text-decoration:none;"> More from {{entry.user.firstName}}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
