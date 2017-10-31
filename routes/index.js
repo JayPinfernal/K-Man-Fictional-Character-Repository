@@ -18,6 +18,8 @@ Entry.find({
 })
 
 })
-
+router.get('/about',(req,res) => {
+  res.render('index/about');
+})
 
 module.exports = router;
